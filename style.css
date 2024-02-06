@@ -1,0 +1,9 @@
+/* .x1 .x2 {
+    display: block;
+    position: sticky;
+    top : 0;
+} */
+.kertas {
+    background-size: 50px 50px;
+    background-image: linear-gradient(to left,black 5%,transparent 5%),linear-gradient(to top,black 5%,transparent 5%);
+}
