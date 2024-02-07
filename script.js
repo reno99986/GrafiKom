@@ -9,8 +9,14 @@ const ctx = kertas.getContext("2d");
 
 const valueSlider = document.querySelector(".x1");
 const valueSlider1 = document.querySelector(".x2");
-valueSlider.setAttribute("max", `${window.innerHeight}`);
-valueSlider1.setAttribute("max", `${window.innerHeight}`);
+
+const valueSlider2 = document.querySelector(".y1");
+const valueSlider3 = document.querySelector(".y2");
+valueSlider.setAttribute("max", `${window.innerWidth}`);
+valueSlider1.setAttribute("max", `${window.innerWidth}`);
+valueSlider2.setAttribute("max", `${window.innerHeight}`);
+valueSlider3.setAttribute("max", `${window.innerHeight}`);
+
 kertas.width = window.innerWidth;
 kertas.height = window.innerHeight;
 function drawDDA(x1, x2, y1, y2) {
@@ -44,9 +50,11 @@ function slider() {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   x1 = Number(document.querySelector(".x1").value);
   x2 = Number(document.querySelector(".x2").value);
-  x1 = x1 * 5;
-  x2 = x2 * 5;
+  y1 = Number(document.querySelector(".y1").value);
+  y2 = Number(document.querySelector(".y2").value);
+  // x1 = x1 * 5;
+  // x2 = x2 * 5;
   ctx.reset;
-  drawDDA(x1, x2, 1, 600);
+  drawDDA(x1, x2, y1, y2);
 }
 drawDDA(300, 300, 1, 600);
