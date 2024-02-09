@@ -46,6 +46,33 @@ function drawDDA(x1, x2, y1, y2) {
   }
 }
 
+function drawCircle(cX, cY, r) {
+  let x = r;
+  let y = 0;
+  let rError = 1 - x;
+  while (x >= y) {
+    drawPix(cX + x, cY - y);
+    drawPix(cX - x, cY - y);
+    drawPix(cX + x, cY + y);
+    drawPix(cX - x, cY + y);
+    drawPix(cX + y, cY - x);
+    drawPix(cX - y, cY - x);
+    drawPix(cX + y, cY + x);
+    drawPix(cX - y, cY + x);
+    y++;
+
+    if (rError < 0) {
+      rError += 2 * y + 1;
+    } else {
+      x--;
+      rError += 2 * (y - x) + 1;
+    }
+  }
+}
+function drawPix(x, y) {
+  ctx.fillRect(x, y, 5, 5);
+}
+
 function slider() {
   ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   x1 = Number(document.querySelector(".x1").value);
@@ -58,5 +85,7 @@ function slider() {
   y2 *= 50;
   ctx.reset;
   drawDDA(x1, x2, y1, y2);
+  drawCircle(x1,y1,100)
 }
 drawDDA(300, 300, 1, 600);
+
