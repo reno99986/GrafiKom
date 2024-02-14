@@ -4,6 +4,6 @@
     top : 0;
 } */
 .kertas {
-    background-size: 50px 50px;
-    background-image: linear-gradient(to left,black 5%,transparent 5%),linear-gradient(to top,black 5%,transparent 5%);
+    background-size: 10px 10px;
+    background-image: linear-gradient(to left,black 5%,transparent 5%),linear-gradient(to top,black 5%,transparent 5%), linear-gradient(to right,black 5%,transparent 5%), linear-gradient(to bottom,black 5%,transparent 5%);
 }

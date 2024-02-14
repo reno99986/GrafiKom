@@ -12,14 +12,14 @@ const valueSlider1 = document.querySelector(".x2");
 
 const valueSlider2 = document.querySelector(".y1");
 const valueSlider3 = document.querySelector(".y2");
-valueSlider.setAttribute("max", `${window.innerWidth / 50}`);
-valueSlider1.setAttribute("max", `${window.innerWidth / 50}`);
-valueSlider2.setAttribute("max", `${window.innerHeight / 50}`);
-valueSlider3.setAttribute("max", `${window.innerHeight / 50}`);
+valueSlider.setAttribute("max", `${window.innerWidth / 10}`);
+valueSlider1.setAttribute("max", `${window.innerWidth / 10}`);
+valueSlider2.setAttribute("max", `${window.innerHeight / 10}`);
+valueSlider3.setAttribute("max", `${window.innerHeight / 10}`);
 
 kertas.width = window.innerWidth;
 kertas.height = window.innerHeight;
-function drawDDA(x1, x2, y1, y2) {
+function drawDDA(x1, x2, y1, y2, tebal, warna) {
   const dx = x2 - x1;
   const dy = y2 - y1;
   if (Math.abs(dx) > Math.abs(dy)) {
@@ -38,27 +38,50 @@ function drawDDA(x1, x2, y1, y2) {
   let x = x1;
   let y = y1;
   for (let i = 0; i < steps; i++) {
-    ctx.fillStyle = "red";
-    ctx.fillRect(Math.floor(x), Math.floor(y), 5, 5);
+    ctx.fillStyle = warna;
+    ctx.fillRect(Math.floor(x), Math.floor(y), tebal, tebal);
 
     x += incX;
     y += incY;
   }
 }
 
-function drawCircle(cX, cY, r) {
+//
+function koorX(x) {
+  return Math.floor(window.innerWidth / 2) + x * -1;
+}
+function koorY(y) {
+  return Math.floor(window.innerHeight / 2) + y * -1;
+}
+
+function jarakBayang(jarakBenda,titikF){
+  return jarakBay = (jarakBenda*titikF)/(jarakBenda-titikF)
+
+}
+
+function tinggiBayang(jarakBenda,tinggiBenda,jarakBayang){
+  return tinggiBay = (jarakBayang/jarakBenda) * tinggiBenda
+}
+
+jarakBenda =300
+tinggiBenda = 150
+titikF = 200
+
+
+//
+function drawCircle(cX, cY, r, bold) {
   let x = r;
   let y = 0;
   let rError = 1 - x;
   while (x >= y) {
-    drawPix(cX + x, cY - y);
-    drawPix(cX - x, cY - y);
-    drawPix(cX + x, cY + y);
-    drawPix(cX - x, cY + y);
-    drawPix(cX + y, cY - x);
-    drawPix(cX - y, cY - x);
-    drawPix(cX + y, cY + x);
-    drawPix(cX - y, cY + x);
+    drawPix(cX + x, cY - y, bold);
+    drawPix(cX - x, cY - y, bold);
+    drawPix(cX + x, cY + y, bold);
+    drawPix(cX - x, cY + y, bold);
+    drawPix(cX + y, cY - x, bold);
+    drawPix(cX - y, cY - x, bold);
+    drawPix(cX + y, cY + x, bold);
+    drawPix(cX - y, cY + x, bold);
     y++;
 
     if (rError < 0) {
@@ -69,8 +92,8 @@ function drawCircle(cX, cY, r) {
     }
   }
 }
-function drawPix(x, y) {
-  ctx.fillRect(x, y, 5, 5);
+function drawPix(x, y, bold) {
+  ctx.fillRect(x, y, bold, bold);
 }
 
 function slider() {
@@ -79,13 +102,20 @@ function slider() {
   x2 = Number(document.querySelector(".x2").value);
   y1 = Number(document.querySelector(".y1").value);
   y2 = Number(document.querySelector(".y2").value);
-  x1 = x1 * 50;
-  x2 = x2 * 50;
-  y1 *= 50;
-  y2 *= 50;
+  x1 = x1 * 10;
+  x2 = x2 * 10;
+  y1 *= 10;
+  y2 *= 10;
   ctx.reset;
-  drawDDA(x1, x2, y1, y2);
-  drawCircle(x1,y1,100)
+  drawDDA(x1, x2, y1, y2, 5, "black");
+  drawCircle(x1, y1, 100, 5);
 }
-drawDDA(300, 300, 1, 600);
+// drawDDA(300, 300, 1, 600);
+
+
+// Mulai Menggabar garis koordinat
+drawDDA(kertas.width / 2, kertas.width / 2,0,kertas.height,2,"red");
+drawDDA(0, kertas.width, kertas.height / 2, kertas.height / 2, 2, "red");
+
+
 
