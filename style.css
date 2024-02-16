@@ -3,6 +3,16 @@
     position: sticky;
     top : 0;
 } */
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
 .kertas {
   background-size: 50px 50px;
   background-image: linear-gradient(to left, black 1%, transparent 1%),
@@ -11,3 +21,22 @@
     linear-gradient(to bottom, black 1%, transparent 1%);
   background-position: 50vw 50vh;
 }
+.popup {
+  margin: 0;
+  padding: 0;
+  position: absolute;
+  left: 40%;
+  top: 50%;
+  width: 15vw;
+  height: 15vw;
+  text-align: center;
+  font-family: Arial, Helvetica, sans-serif;
+
+  background-color: rgba(168, 175, 62, 0.7);
+  display: flex;
+  align-items: center;
+}
+/* .popup > span {
+  display: inline;
+  vertical-align: middle;
+} */
