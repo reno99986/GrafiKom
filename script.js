@@ -19,7 +19,7 @@ valueSlider1.setAttribute("max", `${window.innerHeight}`);
 valueSlider2.setAttribute("max", `${window.innerWidth}`);
 
 valueSlider.setAttribute("value", `300`);
-valueSlider1.setAttribute("value", `50`);
+valueSlider1.setAttribute("value", `250`);
 valueSlider2.setAttribute("value", `150`);
 
 kertas.width = window.innerWidth;
@@ -138,8 +138,8 @@ function slider() {
     // shadow = jarakBayang(jarakBenda,titikF)
     // shadowHeight = tinggiBayang(jarakBenda,tinggiBenda,shadow)
     // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 2, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 2, "red");
+    drawDDA(xTengah, xTengah, 0, yTengah * 2, 4, "red");
+    drawDDA(0, xTengah * 2, yTengah, yTengah, 4, "red");
 
     // menggambar titik fokus
     drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -195,7 +195,7 @@ function slider() {
       koorY(0),
       koorY(-shadowHeight),
       5,
-      "blue"
+      "orange"
     );
     drawDDA(
       koorX(shadowLength + 50),
@@ -203,7 +203,7 @@ function slider() {
       koorY(0),
       koorY(-shadowHeight),
       5,
-      "blue"
+      "orange"
     );
 
     drawDDA(
@@ -211,8 +211,8 @@ function slider() {
       koorX(shadowLength),
       koorY(-shadowHeight),
       koorY(-shadowHeight),
-      5,
-      "blue"
+      8,
+      "orange"
     );
     drawDDA(
       koorX(shadowLength + 50),
@@ -220,20 +220,20 @@ function slider() {
       koorY(0),
       koorY(0),
       5,
-      "blue"
+      "orange"
     );
     //Mengambar lingkaran kurvature
-    drawCircle(koorX(2 * titikF), koorY(0), 2 * titikF, 2);
+    drawCircle(koorX(2 * titikF), koorY(0), 2 * titikF, 5);
 
     //menggambar garis istimewa 1
-    drawDDA(0, xTengah, koorY(tinggiBenda), koorY(tinggiBenda), 3, "purple");
-    drawDDA(koorX(0), koorX(titikF), koorY(tinggiBenda), koorY(0), 2, "purple");
+    drawDDA(0, xTengah, koorY(tinggiBenda), koorY(tinggiBenda), 5, "purple");
+    drawDDA(koorX(0), koorX(titikF), koorY(tinggiBenda), koorY(0), 5, "purple");
     drawDDA(
       koorX(titikF),
       koorX(shadowLength),
       koorY(0),
       koorY(-shadowHeight),
-      2,
+      5,
       "purple"
     );
 
@@ -243,16 +243,16 @@ function slider() {
       koorX(titikF),
       koorY(tinggiBenda),
       koorY(0),
-      2,
+      5,
       "grey"
     );
-    drawDDA(koorX(titikF), koorX(0), koorY(0), koorY(-shadowHeight), 2, "grey");
+    drawDDA(koorX(titikF), koorX(0), koorY(0), koorY(-shadowHeight), 5, "grey");
     drawDDA(
       koorX(0),
       koorX(window.innerWidth / 2),
       koorY(-shadowHeight),
       koorY(-shadowHeight),
-      2,
+      5,
       "grey"
     );
   } else {
@@ -265,3 +265,5 @@ function slider() {
 
 
 window.onload = slider();
+
+// todo: Memperindah objek, menambah fitur di depan titik fokus dan  cermin cembung
