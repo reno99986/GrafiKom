@@ -7,12 +7,16 @@
     <title>Document</title>
 </head>
 <body>
-        J. Benda<input type="range" class="jarakBenda" min="0"  oninput="slider()">
-   T. Benda <input type="range" class="tinggiBenda" min="0"  oninput="slider()">
-   T. Fokus <input type="range" class="jarakFokus" min="0" oninput="slider()">
+        <div class="tombol">
+             J. Benda<input type="range" class="jarakBenda" min="0"  oninput="sliderCekung()">
+   T. Benda <input type="range" class="tinggiBenda" min="0"  oninput="sliderCekung()">
+   T. Fokus <input type="range" class="jarakFokus" min="0" oninput="sliderCekung()">
+        <button class="cekung">Cekung</button>
+        <button class="cembung">Cembung</button>
+    </div>
     <canvas class="kertas" height="800" width="600"></canvas>
     <div class="popup"><span>Benda Melebihi titik Fokus</span></div>
-    
+
     <script src="script.js"></script>
 </body>
 </html>
