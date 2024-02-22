@@ -185,7 +185,54 @@ function jarakBayang(jarakBenda, titikF) {
 function tinggiBayang(jarakBenda, tinggiBenda, jarakBayang) {
   return (jarakBayang / jarakBenda) * tinggiBenda;
 }
+function drawAllCircle(cX, cY, r, bold) {
+  let x = r;
+  let y = 0;
+  let rError = 1 - x;
+  while (x >= y) {
+    drawPix(cX + x, cY - y, bold);
+    drawPix(cX - x, cY - y, bold);
+    drawPix(cX + x, cY + y, bold);
+    drawPix(cX - x, cY + y, bold);
+    drawPix(cX + y, cY - x, bold);
+    drawPix(cX - y, cY - x, bold);
+    drawPix(cX + y, cY + x, bold);
+    drawPix(cX - y, cY + x, bold);
+    y++;
 
+    if (rError < 0) {
+      rError += 2 * y + 1;
+    } else {
+      x--;
+      rError += 2 * (y - x) + 1;
+    }
+  }
+}
+//
+function drawfillCircle(cX, cY, r, bold) {
+  let x = r;
+  let y = 0;
+  let rError = 1 - x;
+  while (x >= y) {
+    drawPix(cX + x, cY - y, bold);
+    drawPix(cX - x, cY - y, bold);
+    drawPix(cX + x, cY + y, bold);
+    drawPix(cX - x, cY + y, bold);
+    drawPix(cX + y, cY - x, bold);
+    drawPix(cX - y, cY - x, bold);
+    drawPix(cX + y, cY + x, bold);
+    drawPix(cX - y, cY + x, bold);
+    y++;
+    r--;
+
+    if (rError < 0) {
+      rError += 2 * y + 1;
+    } else {
+      x--;
+      rError += 2 * (y - x) + 1;
+    }
+  }
+}
 //
 function drawPartCircle(cX, cY, r, bold) {
   let x = r;
@@ -537,7 +584,7 @@ function sliderCekung() {
 //nambah makin jauh
 //kurang mkin tinggi
 
-window.onload = sliderCekung();
+window.onload = sliderCembung();
 
 // todo: Memperindah objek, menambah fitur di depan titik fokus dan  cermin cembung
 
@@ -565,6 +612,51 @@ function sliderCembung() {
   // Mulai Menggabar garis koordinat
   drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
   drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
+  //menggambar garis istimewa 1
+  drawDDA(0, xTengah, koorY(tinggiBenda), koorY(tinggiBenda), 5, "purple");
+  drawDDA_Continue(
+    koorX(titikF),
+    koorX(0),
+    koorY(0),
+    koorY(tinggiBenda),
+    5,
+    "purple"
+  );
+  clearDDA(koorX(0), koorX(titikF), koorY(tinggiBenda), koorY(0), 5);
+  drawDDA_Dashed(
+    koorX(0),
+    koorX(titikF),
+    koorY(tinggiBenda),
+    koorY(0),
+    5,
+    "purple"
+  );
+    //menggambar garis istimewa 2
+    drawDDA_Continue(
+      koorX(titikF),
+      koorX(jarakBenda),
+      koorY(0),
+      koorY(tinggiBenda),
+      5,
+      "grey"
+    );
+    clearDDA(koorX(titikF), koorX(0), koorY(0), koorY(-shadowHeight), 5, "grey");
+    drawDDA_Dashed(
+      koorX(shadowLength),
+      koorX(0),
+      koorY(-shadowHeight),
+      koorY(-shadowHeight),
+      5,
+      "grey"
+    );
+    drawDDA(
+      koorX(0),
+      koorX(window.innerWidth / 2),
+      koorY(-shadowHeight),
+      koorY(-shadowHeight),
+      5,
+      "grey"
+    );
 
   // menggambar titik fokus
   drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -650,25 +742,7 @@ function sliderCembung() {
   //Mengambar lingkaran kurvature
   drawPartCircleInverted(koorX(2 * titikF), koorY(0), -2 * titikF, 5);
 
-  //menggambar garis istimewa 1
-  drawDDA(0, xTengah, koorY(tinggiBenda), koorY(tinggiBenda), 5, "purple");
-  drawDDA_Continue(
-    koorX(titikF),
-    koorX(0),
-    koorY(0),
-    koorY(tinggiBenda),
-    5,
-    "purple"
-  );
-  clearDDA(koorX(0), koorX(titikF), koorY(tinggiBenda), koorY(0), 5);
-  drawDDA_Dashed(
-    koorX(0),
-    koorX(titikF),
-    koorY(tinggiBenda),
-    koorY(0),
-    5,
-    "purple"
-  );
+  
 
   // drawDDA(
   //   koorX(titikF),
@@ -679,32 +753,7 @@ function sliderCembung() {
   //   "purple"
   // );
 
-  //menggambar garis istimewa 2
-  drawDDA_Continue(
-    koorX(titikF),
-    koorX(jarakBenda),
-    koorY(0),
-    koorY(tinggiBenda),
-    5,
-    "grey"
-  );
-  clearDDA(koorX(titikF), koorX(0), koorY(0), koorY(-shadowHeight), 5, "grey");
-  drawDDA_Dashed(
-    koorX(shadowLength),
-    koorX(0),
-    koorY(-shadowHeight),
-    koorY(-shadowHeight),
-    5,
-    "grey"
-  );
-  drawDDA(
-    koorX(0),
-    koorX(window.innerWidth / 2),
-    koorY(-shadowHeight),
-    koorY(-shadowHeight),
-    5,
-    "grey"
-  );
+
   // } else {
   // popup.style.display = "none";
   // ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
@@ -847,4 +896,19 @@ function sliderCembung() {
 
   // ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
   // popup.style.display = "flex";
+//   drawfillCircle(koorX(jarakBenda),koorY(0),20,25)
+// drawfillCircle(koorX(jarakBenda+jarakBenda*0.3),koorY(0),20,25)
+// drawDDA(koorX(jarakBenda-jarakBenda*0.2),koorX(jarakBenda+jarakBenda*0.4),koorY(0),koorY(0),6,"black")
+// drawDDA(koorX(jarakBenda+jarakBenda*0.4),koorX(jarakBenda+jarakBenda*0.42),koorY(0),koorY(jarakBenda/10),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda*0.2),koorX(jarakBenda-jarakBenda*0.2),koorY(0),koorY(jarakBenda/10),6,"black")
+//line atas
+
+// drawDDA(koorX(jarakBenda+jarakBenda*0.4),koorX(jarakBenda+jarakBenda*0.42),koorY(jarakBenda/4),koorY(jarakBenda/6),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda*0.2),koorX(jarakBenda-jarakBenda*0.1),koorY(jarakBenda/10),koorY(jarakBenda/10),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda/10),koorX(jarakBenda-jarakBenda/20),koorY(jarakBenda/10),koorY(jarakBenda/6),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda/20),koorX(jarakBenda+jarakBenda*0.4),koorY(jarakBenda/6),koorY(jarakBenda/6),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda/10),koorX(jarakBenda+jarakBenda*0.43),koorY(jarakBenda/10),koorY(jarakBenda/10),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda/10),koorX(jarakBenda-jarakBenda/20),koorY(jarakBenda/10),koorY(jarakBenda/6),6,"black")
+// drawDDA(koorX(jarakBenda-jarakBenda*0.2),koorX(jarakBenda-jarakBenda*0.2),koorY(tinggiBenda),koorY(0),6,"black")
+// drawPartCircle(koorX(jarakBenda-jarakBenda*0.05),koorY(tinggiBenda-tinggiBenda*0.8),koorX(jarakBenda+jarakBenda*1.),10)
 }
