@@ -35,7 +35,6 @@ tombolLensaCembung.addEventListener("click", function () {
   valueSlider2.setAttribute("oninput", "sliderLensaCembung()");
 });
 
-
 const kertas = document.querySelector(".kertas");
 const ctx = kertas.getContext("2d");
 

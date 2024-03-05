@@ -1,25 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="value"></div>
-        <div class="tombol">
-             J. Benda<input type="range" class="jarakBenda" min="0"  oninput="sliderCekung()">
-   T. Benda <input type="range" class="tinggiBenda" min="0"  oninput="sliderCekung()">
-   T. Fokus <input type="range" class="jarakFokus" min="0" oninput="sliderCekung()">
-        <button class="cekung">Cermin Cekung</button>
-        <button class="cembung">Cermin Cembung</button>
-        <button class="lensacekung">Lensa Cekung</button>
-        <button class="lensacembung">Lensa Cembung</button>
+    <div class="tombol">
+      Jarak Benda
+      <input type="range" class="jarakBenda" min="0" oninput="sliderCekung()" />
+      Tinggi Benda
+      <input
+        type="range"
+        class="tinggiBenda"
+        min="0"
+        oninput="sliderCekung()"
+      />
+      Titik Fokus
+      <input type="range" class="jarakFokus" min="0" oninput="sliderCekung()" />
+      <button class="cekung">Cermin Cekung</button>
+      <button class="cembung">Cermin Cembung</button>
+      <button class="lensacekung">Lensa Cekung</button>
+      <button class="lensacembung">Lensa Cembung</button>
     </div>
     <canvas class="kertas" height="800" width="600"></canvas>
     <div class="popup"><span>Benda Melebihi titik Fokus</span></div>
 
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
