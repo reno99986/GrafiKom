@@ -64,13 +64,10 @@ function drawDDA(x1, x2, y1, y2, tebal, warna) {
     steps = Math.abs(dy);
   }
 
-  // if ((steps = 0)) {
-  //   let incX = 0;
-  //   let incY = 0;
-  // } else {
+
   let incX = dx / steps;
   let incY = dy / steps;
-  // }
+
   let x = x1;
   let y = y1;
   for (let i = 0; i < steps; i++) {
@@ -91,13 +88,10 @@ function clearDDA(x1, x2, y1, y2, tebal) {
     steps = Math.abs(dy);
   }
 
-  // if ((steps = 0)) {
-  //   let incX = 0;
-  //   let incY = 0;
-  // } else {
+
   let incX = dx / steps;
   let incY = dy / steps;
-  // }
+
   let x = x1;
   let y = y1;
   for (let i = 0; i < steps; i++) {
@@ -117,13 +111,9 @@ function drawDDA_Continue(x1, x2, y1, y2, tebal, warna) {
     steps = Math.abs(dy);
   }
 
-  // if ((steps = 0)) {
-  //   let incX = 0;
-  //   let incY = 0;
-  // } else {
+
   let incX = dx / steps;
   let incY = dy / steps;
-  // }
   let x = x1;
   let y = y1;
   for (let i = 0; i < steps + window.innerWidth + window.innerHeight; i++) {
@@ -300,6 +290,66 @@ let titikF = f;
 nilai = document.querySelector(".value");
 nilai.innerHTML = `<p>Jarak Benda: ${jarakBenda}</p><p>Tinggi Benda: ${tinggiBenda}</p><p>Titik Fokus : ${-titikF}</p>`;
 
+function drawCoor() {
+  // Mulai Menggabar garis koordinat
+  drawDDA(koorX(0), koorX(0), 0, koorY(0) * 2, 6, "red");
+  drawDDA(0, koorX(0) * 2, koorY(0), koorY(0), 6, "red");
+}
+
+function drawObj() {
+  //menggambar benda
+  drawDDA(
+    koorX(jarakBenda),
+    koorX(jarakBenda),
+    koorY(0),
+    koorY(tinggiBenda),
+    5,
+    "blue"
+  );
+
+  drawDDA(
+    koorX(jarakBenda),
+    koorX(jarakBenda - tinggiBenda * 0.4),
+    koorY(tinggiBenda),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    5,
+    "blue"
+  );
+  drawDDA(
+    koorX(jarakBenda),
+    koorX(jarakBenda + tinggiBenda * 0.4),
+    koorY(tinggiBenda),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    5,
+    "blue"
+  );
+
+  drawDDA(
+    koorX(jarakBenda),
+    koorX(jarakBenda + tinggiBenda * 0.4),
+    koorY(0),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    5,
+    "blue"
+  );
+  drawDDA(
+    koorX(jarakBenda),
+    koorX(jarakBenda - tinggiBenda * 0.4),
+    koorY(0),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    5,
+    "blue"
+  );
+  drawDDA(
+    koorX(jarakBenda + tinggiBenda * 0.4),
+    koorX(jarakBenda - tinggiBenda * 0.4),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    koorY(tinggiBenda - tinggiBenda * 0.2),
+    5,
+    "blue"
+  );
+}
+
 function sliderCekung() {
   l = Number(document.querySelector(".jarakBenda").value);
   h = koorY(Number(document.querySelector(".tinggiBenda").value));
@@ -338,58 +388,7 @@ function sliderCekung() {
     );
     tulisText(xTengah - titikF * 2, yTengah - 5, "C", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
+    drawObj();
     //menggambar bayangan
     drawDDA(
       koorX(shadowLength),
@@ -479,11 +478,8 @@ function sliderCekung() {
   } else {
     popup.style.display = "none";
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    // shadow = jarakBayang(jarakBenda,titikF)
-    // shadowHeight = tinggiBayang(jarakBenda,tinggiBenda,shadow)
-    // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
+
+    drawCoor();
 
     // menggambar titik fokus
     drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -499,57 +495,7 @@ function sliderCekung() {
     );
     tulisText(xTengah - titikF * 2, yTengah - 5, "C", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
+    drawObj();
 
     //menggambar bayangan
     drawDDA(
@@ -744,57 +690,7 @@ function sliderCembung() {
   );
   tulisText(xTengah - titikF * 2, yTengah - 5, "C", "green", 20);
 
-  //menggambar benda
-  drawDDA(
-    koorX(jarakBenda),
-    koorX(jarakBenda),
-    koorY(0),
-    koorY(tinggiBenda),
-    5,
-    "blue"
-  );
-
-  drawDDA(
-    koorX(jarakBenda),
-    koorX(jarakBenda - tinggiBenda * 0.4),
-    koorY(tinggiBenda),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    5,
-    "blue"
-  );
-  drawDDA(
-    koorX(jarakBenda),
-    koorX(jarakBenda + tinggiBenda * 0.4),
-    koorY(tinggiBenda),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    5,
-    "blue"
-  );
-
-  drawDDA(
-    koorX(jarakBenda),
-    koorX(jarakBenda + tinggiBenda * 0.4),
-    koorY(0),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    5,
-    "blue"
-  );
-  drawDDA(
-    koorX(jarakBenda),
-    koorX(jarakBenda - tinggiBenda * 0.4),
-    koorY(0),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    5,
-    "blue"
-  );
-  drawDDA(
-    koorX(jarakBenda + tinggiBenda * 0.4),
-    koorX(jarakBenda - tinggiBenda * 0.4),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    koorY(tinggiBenda - tinggiBenda * 0.2),
-    5,
-    "blue"
-  );
+  drawObj();
 
   //menggambar bayangan
   drawDDA(
@@ -849,9 +745,7 @@ function sliderCembung() {
     "orange"
   );
 
-  // Mulai Menggabar garis koordinat
-  drawDDA(xTengah, xTengah, 0, yTengah * 2, 3, "red");
-  drawDDA(0, xTengah * 2, yTengah, yTengah, 3, "red");
+  drawCoor();
 
   //Mengambar lingkaran kurvature
   drawPartCircleInverted(koorX(2 * titikF), koorY(0), -2 * titikF, 5, "green");
@@ -878,11 +772,7 @@ function sliderLensaCekung() {
   if (jarakBenda > titikF) {
     popup.style.display = "none";
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    // shadow = jarakBayang(jarakBenda,titikF)
-    // shadowHeight = tinggiBayang(jarakBenda,tinggiBenda,shadow)
-    //menggambar garis istimewa 1
-    // drawDDA(0, xTengah, koorY(tinggiBenda), koorY(tinggiBenda), 5, "purple");
-    // drawDDA(koorX(0), koorX(titikF), koorY(tinggiBenda), koorY(0), 5, "purple");
+    
     drawDDA_Continue(
       koorX(jarakBenda),
       koorX(0),
@@ -927,9 +817,7 @@ function sliderLensaCekung() {
       "grey"
     );
 
-    // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
+    drawCoor();
 
     // menggambar titik fokus 1
     drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -960,57 +848,7 @@ function sliderLensaCekung() {
     );
     tulisText(xTengah - -titikF * 2, yTengah - 5, "C2", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
+    drawObj();
 
     //menggambar bayangan
     drawDDA(
@@ -1077,15 +915,8 @@ function sliderLensaCekung() {
   } else {
     popup.style.display = "none";
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    // shadow = jarakBayang(jarakBenda,titikF)
-    // shadowHeight = tinggiBayang(jarakBenda,tinggiBenda,shadow)
-    // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
 
-    // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
+    drawCoor();
 
     // menggambar titik fokus 1
     drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -1105,57 +936,7 @@ function sliderLensaCekung() {
     );
     tulisText(xTengah - titikF * 2, yTengah - 5, "C1", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
+    drawObj();
 
     //menggambar bayangan
     drawDDA(
@@ -1319,57 +1100,7 @@ function sliderLensaCembung() {
 
     tulisText(xTengah - titikF * 2, yTengah - 5, "C", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
+    drawObj();
 
     //menggambar bayangan
     drawDDA(
@@ -1427,13 +1158,7 @@ function sliderLensaCembung() {
     //Mengambar lingkaran kurvature
     drawPartCircle(koorX(titikF), koorY(0), titikF * 1.45, 5, "green");
     drawPartCircleInverted(koorX(-titikF), koorY(0), titikF * 1.45, 5, "green");
-    // drawPartCircleInverted(
-    //   koorX(2 * titikF),
-    //   koorY(0),
-    //   2 * -titikF,
-    //   5,
-    //   "green"
-    // );
+
     //menggambar garis istimewa 1
     drawDDA_Continue(
       koorX(jarakBenda),
@@ -1472,11 +1197,8 @@ function sliderLensaCembung() {
   } else {
     popup.style.display = "none";
     ctx.clearRect(0, 0, window.innerWidth, window.innerHeight);
-    // shadow = jarakBayang(jarakBenda,titikF)
-    // shadowHeight = tinggiBayang(jarakBenda,tinggiBenda,shadow)
-    // Mulai Menggabar garis koordinat
-    drawDDA(xTengah, xTengah, 0, yTengah * 2, 6, "red");
-    drawDDA(0, xTengah * 2, yTengah, yTengah, 6, "red");
+
+    drawCoor();
 
     // menggambar titik fokus 1
     drawDDA(koorX(titikF), koorX(titikF), koorY(1), koorY(-1), 5, "green");
@@ -1509,57 +1231,7 @@ function sliderLensaCembung() {
 
     tulisText(xTengah - titikF * 2, yTengah - 5, "C", "green", 20);
 
-    //menggambar benda
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda),
-      koorY(0),
-      koorY(tinggiBenda),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(tinggiBenda),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(0),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
-    drawDDA(
-      koorX(jarakBenda + tinggiBenda * 0.4),
-      koorX(jarakBenda - tinggiBenda * 0.4),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      koorY(tinggiBenda - tinggiBenda * 0.2),
-      5,
-      "blue"
-    );
+    drawObj();
 
     //menggambar bayangan
     drawDDA(
@@ -1636,14 +1308,7 @@ function sliderLensaCembung() {
     );
 
     drawDDA(koorX(titikF), koorX(0), koorY(0), koorY(-shadowHeight), 5, "grey");
-    // drawDDA_Continue(
-    //   koorX(titikF),
-    //   koorX(jarakBenda),
-    //   koorY(0),
-    //   koorY(tinggiBenda),
-    //   5,
-    //   "grey"
-    // );
+
     drawDDA_Dashed(
       koorX(0),
       koorX(window.innerWidth / 2),
