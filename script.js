@@ -20,11 +20,13 @@ function toggleElements() {
     tombol.style.width = "12px";
     tombol.style.height = "20px";
     tombolKontrol.innerHTML = " O ";
+    tombol.style.paddingLeft = "1%";
   } else {
     tombol.style.width = "260px";
     tombol.style.height = "280px";
     contain.style.display = "flex";
     tombolKontrol.innerHTML = " X ";
+    tombol.style.paddingLeft = "0%";
   }
 }
 tombolCekung.addEventListener("click", function () {
