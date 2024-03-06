@@ -9,25 +9,37 @@
   <body>
     <div class="value"></div>
     <div class="tombol">
-      Jarak Benda
-      <input type="range" class="jarakBenda" min="0" oninput="sliderCekung()" />
-      Tinggi Benda
-      <input
-        type="range"
-        class="tinggiBenda"
-        min="0"
-        oninput="sliderCekung()"
-      />
-      Titik Fokus
-      <input type="range" class="jarakFokus" min="0" oninput="sliderCekung()" />
-      <button class="cekung">Cermin Cekung</button>
-      <button class="cembung">Cermin Cembung</button>
-      <button class="lensacekung">Lensa Cekung</button>
-      <button class="lensacembung">Lensa Cembung</button>
+      <div class="container">
+        <p class="keterangan">Jarak Benda</p>
+        <input
+          type="range"
+          class="jarakBenda"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <p class="keterangan">Tinggi Benda</p>
+        <input
+          type="range"
+          class="tinggiBenda"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <p class="keterangan">Titik Fokus</p>
+        <input
+          type="range"
+          class="jarakFokus"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <button class="cekung">Cermin Cekung</button>
+        <button class="cembung">Cermin Cembung</button>
+        <button class="lensacekung">Lensa Cekung</button>
+        <button class="lensacembung">Lensa Cembung</button>
+      </div>
+      <div class="tombol-kontrol" onclick="toggleElements()">X</div>
     </div>
     <canvas class="kertas" height="800" width="600"></canvas>
     <div class="popup"><span>Benda Melebihi titik Fokus</span></div>
-
     <script src="script.js"></script>
   </body>
 </html>
