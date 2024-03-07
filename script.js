@@ -8,7 +8,27 @@ const tombolCekung = document.querySelector(".cekung");
 const tombolCembung = document.querySelector(".cembung");
 const tombolLensaCekung = document.querySelector(".lensacekung");
 const tombolLensaCembung = document.querySelector(".lensacembung");
+const tombolKontrol = document.querySelector(".tombol-kontrol");
+const contain = document.querySelector(".container");
+const tombol = document.querySelector(".tombol");
 
+let isClosed = false;
+function toggleElements() {
+  isClosed = !isClosed;
+  if (isClosed === true) {
+    contain.style.display = "none";
+    tombol.style.width = "12px";
+    tombol.style.height = "20px";
+    tombolKontrol.innerHTML = " O ";
+    tombol.style.paddingLeft = "1%";
+  } else {
+    tombol.style.width = "260px";
+    tombol.style.height = "280px";
+    contain.style.display = "flex";
+    tombolKontrol.innerHTML = " X ";
+    tombol.style.paddingLeft = "0%";
+  }
+}
 tombolCekung.addEventListener("click", function () {
   sliderCekung();
   valueSlider.setAttribute("oninput", "sliderCekung()");
