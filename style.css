@@ -21,38 +21,95 @@ body {
     linear-gradient(to bottom, black 1px, transparent 1px);
   background-position: 50vw 50vh;
 }
-.popup {
-  margin: 0;
-  padding: 0;
-  position: absolute;
-  left: 40%;
-  top: 50%;
-  width: 15vw;
-  height: 15vw;
-  text-align: center;
-  font-family: Arial, Helvetica, sans-serif;
-
-  background-color: rgba(168, 175, 62, 0.7);
-  display: flex;
-  align-items: center;
-}
 /* .popup > span {
   display: inline;
   vertical-align: middle;
 } */
-.tombol {
+
+.selectobj {
+  border-radius: 10px;
+  color: white;
   position: absolute;
-  right: 10%;
-  bottom: 10%;
-  width: 200px;
-  height: 220px;
-  background-color: rgba(25, 23, 11, 0.4);
+  left: 2%;
+  bottom: 2%;
+  width: 150px;
+  height: 50px;
+  background-color: rgb(11, 96, 176);
   display: flex;
   flex-direction: column;
-  
+  padding: 1%;
+  padding-left: 0%;
+  text-align: center;
 }
-.cekung,.cembung {
+.jarum,
+.layangan {
   width: 120px;
   height: 40px;
+  border-radius: 10px;
   align-self: center;
+}
+
+.container,
+.tombol {
+  border-radius: 10px;
+  color: white;
+  position: absolute;
+  right: 2%;
+  bottom: 2%;
+  width: 260px;
+  height: 230px;
+  background-color: rgb(11, 96, 176);
+  display: flex;
+  flex-direction: column;
+  padding: 1%;
+  padding-left: 0%;
+}
+
+.tombol {
+  flex-direction: row-reverse;
+}
+
+.container > button:hover {
+  background-color: white;
+  color: rgb(11, 96, 176);
+}
+.container > button {
+  width: 100%;
+  height: 100%;
+  margin: 5px;
+  background-color: rgb(64, 162, 216);
+  color: white;
+  font-size: large;
+  border: none;
+  cursor: pointer;
+}
+.cekung,
+.cembung,
+.lensacekung,
+.lensacembung {
+  width: 120px;
+  height: 40px;
+  border-radius: 10px;
+  align-self: center;
+}
+.tombol-kontrol {
+  cursor: pointer;
+  color: white;
+  position: absolute;
+  display: flex;
+  flex-direction: row;
+}
+
+.value {
+  color: white;
+  font-size: large;
+  position: absolute;
+  top: 5.7%;
+  right: 2%;
+  width: 150px;
+  height: 75px;
+  padding: 5px;
+  background-color: rgb(11, 96, 176);
+  flex-direction: column;
+  border-radius: 10px;
 }

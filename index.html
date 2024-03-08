@@ -1,22 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Document</title>
-</head>
-<body>
-        <div class="tombol">
-             J. Benda<input type="range" class="jarakBenda" min="0"  oninput="sliderCekung()">
-   T. Benda <input type="range" class="tinggiBenda" min="0"  oninput="sliderCekung()">
-   T. Fokus <input type="range" class="jarakFokus" min="0" oninput="sliderCekung()">
-        <button class="cekung">Cekung</button>
-        <button class="cembung">Cembung</button>
+  </head>
+  <body>
+    <div class="selectobj">
+      <p>Pilih Objek: </p>
+      <button class="jarum">Pins</button> <button class="layangan">kite</button>
+    </div>
+    <div class="value"></div>
+    <div class="tombol">
+      <div class="container">
+        <p class="keterangan">Jarak Benda</p>
+        <input
+          type="range"
+          class="jarakBenda"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <p class="keterangan">Tinggi Benda</p>
+        <input
+          type="range"
+          class="tinggiBenda"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <p class="keterangan">Titik Fokus</p>
+        <input
+          type="range"
+          class="jarakFokus"
+          min="0"
+          oninput="sliderCekung()"
+        />
+        <button class="cekung">Cermin Cekung</button>
+        <button class="cembung">Cermin Cembung</button>
+        <button class="lensacekung">Lensa Cekung</button>
+        <button class="lensacembung">Lensa Cembung</button>
+      </div>
+      <div class="tombol-kontrol" onclick="toggleElements()">X</div>
     </div>
     <canvas class="kertas" height="800" width="600"></canvas>
-    <div class="popup"><span>Benda Melebihi titik Fokus</span></div>
-
     <script src="script.js"></script>
-</body>
+  </body>
 </html>
