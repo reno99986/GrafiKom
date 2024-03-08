@@ -1124,5 +1124,6 @@ function sliderLensaCembung() {
     );
   }
 }
+sliderCekung();
 //nambah makin jauh
 //kurang mkin tinggi
