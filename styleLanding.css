@@ -1,12 +1,11 @@
-body {
-  margin: 0;
+body{
   padding: 0;
-  font-family: "Inter", sans-serif;
-  font-size: 16px;
-  line-height: 1.6;
-  color: #333;
-  background-color: #f4f4f4;
+  margin: 0;
+  height: 100%;
+  width: 100%;
+
 }
+
 .page {
   background-color: #ffffff;
   display: flex;
@@ -31,71 +30,6 @@ body {
   left: -30px;
 }
 
-.page .nav-bar {
-  position: absolute;
-  width: 1920px;
-  height: 155px;
-  top: 0;
-  left: 30px;
-  background-color: #86b6f6;
-}
-
-.page .group {
-  top: 49px;
-  left: 1430px;
-  position: absolute;
-  width: 172px;
-  height: 56px;
-}
-
-.page .overlap-group {
-  position: relative;
-  width: 170px;
-  height: 56px;
-  background-color: #b4d4ff;
-  border-radius: 100px;
-}
-
-.page .text-wrapper {
-  position: absolute;
-  top: 13px;
-  left: 56px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: #000000;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.page .overlap-wrapper {
-  top: 48px;
-  left: 1685px;
-  position: absolute;
-  width: 172px;
-  height: 56px;
-}
-
-.page .text-wrapper-2 {
-  position: absolute;
-  top: 13px;
-  left: 38px;
-  font-family: "Inter-Medium", Helvetica;
-  font-weight: 500;
-  color: #000000;
-  font-size: 24px;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.page .clamp {
-  position: absolute;
-  width: 95px;
-  height: 95px;
-  top: 30px;
-  left: 47px;
-}
-
 .page .intro {
   position: absolute;
   width: 1980px;
@@ -104,42 +38,23 @@ body {
   left: 0;
 }
 
-.page .text-wrapper-3 {
-  position: absolute;
-  top: -1px;
-  left: 212px;
-  font-family: "Inter-Bold", Helvetica;
-  font-weight: 700;
-  color: #000000;
-  font-size: 40px;
-  letter-spacing: 0;
-  line-height: normal;
-  white-space: nowrap;
-}
-
-.page .overlap-2 {
-  position: absolute;
+.page .overlap-group {
+  position: relative;
   width: 1920px;
   height: 1066px;
   top: 102px;
   left: 30px;
+  background-image: url(./img/Aesthetic\ minimal\ white\ grid\ pattern\ wallpaper.png);
+  background-size: cover;
+  background-position: 50% 50%;
 }
 
-.page .img {
+.page .clamp {
   position: absolute;
   width: 580px;
   height: 580px;
   top: 200px;
   left: 142px;
-}
-
-.page .aesthetic-minimal {
-  position: absolute;
-  width: 1920px;
-  height: 1066px;
-  top: 0;
-  left: 0;
-  object-fit: cover;
 }
 
 .page .optic-views {
@@ -155,18 +70,17 @@ body {
   line-height: normal;
 }
 
-.page .p {
+.page .this-program-is-a {
   position: absolute;
-  width: 1000px;
+  width: 909px;
   top: 493px;
-  left: 786px;
+  left: 776px;
   font-family: "Inter-Regular", Helvetica;
   font-weight: 400;
   color: #000000;
   font-size: 32px;
   letter-spacing: 0;
   line-height: normal;
-  /* padding-left: 2%; */
 }
 
 .page .profile {
@@ -187,14 +101,14 @@ body {
 }
 
 .page .div-wrapper {
+  position: relative;
   width: 277px;
   height: 97px;
-  border-radius: 100px;
-  position: relative;
   background-color: #ffffff;
+  border-radius: 100px;
 }
 
-.page .text-wrapper-4 {
+.page .text-wrapper {
   position: absolute;
   top: 25px;
   left: 75px;
@@ -215,7 +129,7 @@ body {
   left: 612px;
 }
 
-.page .ellipse {
+.page .person {
   position: absolute;
   width: 158px;
   height: 158px;
@@ -224,7 +138,7 @@ body {
   object-fit: cover;
 }
 
-.page .text-wrapper-5 {
+.page .text-wrapper-2 {
   position: absolute;
   top: 18px;
   left: 249px;
@@ -236,7 +150,7 @@ body {
   line-height: normal;
 }
 
-.page .text-wrapper-6 {
+.page .text-wrapper-3 {
   position: absolute;
   top: 97px;
   left: 249px;
@@ -280,9 +194,9 @@ body {
   left: 1105px;
 }
 
-.page .text-wrapper-7 {
+.page .p {
   position: absolute;
-  top: 950px;
+  top: 960px;
   left: 673px;
   font-family: "Inter-Italic", Helvetica;
   font-weight: 400;
@@ -293,6 +207,93 @@ body {
   line-height: normal;
 }
 
+.page .nav-bar {
+  position: fixed;
+  width: 1920px;
+  height: 155px;
+  top: 0%;
+  left: 0%;
+  background-color: #86b6f6;
+}
+
+.page .img {
+  position: absolute;
+  width: 95px;
+  height: 95px;
+  top: 30px;
+  left: 47px;
+}
+
+.page .text-wrapper-4 {
+  position: absolute;
+  top: 52px;
+  left: 182px;
+  font-family: "Inter-Bold", Helvetica;
+  font-weight: 700;
+  color: #000000;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.page .group {
+  top: 49px;
+  left: 1430px;
+  position: absolute;
+  width: 172px;
+  height: 56px;
+}
+
+.page .overlap-group-2 {
+  position: relative;
+  width: 170px;
+  height: 56px;
+  background-color: #b4d4ff;
+  border-radius: 100px;
+}
+
+.page .text-wrapper-5 {
+  position: absolute;
+  top: 13px;
+  left: 50px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.page .text-wrapper-5 a{
+  text-decoration:none;
+  color:black
+}
+
+.page .overlap-wrapper {
+  top: 48px;
+  left: 1685px;
+  position: absolute;
+  width: 172px;
+  height: 56px;
+}
+
+.page .text-wrapper-6 {
+  position: absolute;
+  top: 13px;
+  left: 38px;
+  font-family: "Inter-Medium", Helvetica;
+  font-weight: 500;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+.page .text-wrapper-6 a{
+  text-decoration:none;
+  color:black
+
+}
 .page .desc {
   position: absolute;
   width: 1920px;
@@ -302,11 +303,33 @@ body {
   background-color: #ffffff;
 }
 
-.page .text-wrapper-8 {
+.page .optic-views-is-a {
+  position: absolute;
+  width: 1671px;
+  top: 859px;
+  left: 52px;
+  font-family: "Inter-Regular", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 36px;
+  text-align: justify;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.page .simulati-cahaya {
+  position: absolute;
+  width: 629px;
+  height: 625px;
+  top: 228px;
+  left: 645px;
+  object-fit: cover;
+}
+
+.page .text-wrapper-7 {
   position: absolute;
   width: 691px;
-  top: 0%;
-  bottom: 0%;
+  top: 1%px;
   left: 52px;
   font-family: "Inter-Bold", Helvetica;
   font-weight: 700;
@@ -314,38 +337,6 @@ body {
   font-size: 64px;
   letter-spacing: 0;
   line-height: normal;
-}
-
-.page .text-wrapper-9 {
-  width: 1800px;
-  top: 800px;
-  left: 52px;
-  font-family: "Inter-Regular", Helvetica;
-  font-weight: 400;
-  font-size: 36px;
-  text-align: justify;
-  position: absolute;
-  color: #000000;
-  letter-spacing: 0;
-  line-height: normal;
-}
-
-.page .image {
-  position: absolute;
-  width: 1000px;
-  height: 994px;
-  /* top: 10px; */
-  left: 371px;
-  object-fit: cover;
-  transform: scale(0.5);
-}
-
-.page .vanity-mirror {
-  position: absolute;
-  width: 106px;
-  height: 106px;
-  top: 51px;
-  left: 780px;
 }
 
 .page .tool-s {
@@ -357,16 +348,16 @@ body {
   background-color: #b4d4ff;
 }
 
-.page .overlap-3 {
+.page .overlap-2 {
   position: relative;
   height: 1066px;
   top: 7px;
-  background-image: url(./img/aesthetic-minimal-white-grid-pattern-wallpaper.png);
+  background-image: url(./img/image.png);
   background-size: cover;
   background-position: 50% 50%;
 }
 
-.page .text-wrapper-10 {
+.page .text-wrapper-8 {
   position: absolute;
   width: 691px;
   top: 33px;
@@ -395,7 +386,7 @@ body {
   left: 0;
 }
 
-.page .text-wrapper-11 {
+.page .text-wrapper-9 {
   position: absolute;
   top: 46px;
   left: 287px;
@@ -407,14 +398,14 @@ body {
   line-height: normal;
 }
 
-.page .text-wrapper-12 {
+.page .text-wrapper-10 {
+  position: absolute;
   top: 169px;
   left: 295px;
   font-family: "Inter-Light", Helvetica;
   font-weight: 300;
-  font-size: 32px;
-  position: absolute;
   color: #000000;
+  font-size: 32px;
   letter-spacing: 0;
   line-height: normal;
 }
@@ -427,7 +418,7 @@ body {
   left: 55px;
 }
 
-.page .text-wrapper-13 {
+.page .text-wrapper-11 {
   position: absolute;
   top: 46px;
   left: 284px;
@@ -439,14 +430,14 @@ body {
   line-height: normal;
 }
 
-.page .text-wrapper-14 {
-  top: 169px;
+.page .text-wrapper-12 {
   left: 292px;
+  position: absolute;
+  top: 169px;
   font-family: "Inter-Light", Helvetica;
   font-weight: 300;
-  font-size: 32px;
-  position: absolute;
   color: #000000;
+  font-size: 32px;
   letter-spacing: 0;
   line-height: normal;
 }
@@ -459,7 +450,7 @@ body {
   left: 53px;
 }
 
-.page .text-wrapper-15 {
+.page .text-wrapper-13 {
   position: absolute;
   top: 46px;
   left: 286px;
@@ -471,14 +462,14 @@ body {
   line-height: normal;
 }
 
-.page .text-wrapper-16 {
-  top: 169px;
+.page .text-wrapper-14 {
   left: 294px;
+  position: absolute;
+  top: 169px;
   font-family: "Inter-Light", Helvetica;
   font-weight: 300;
-  font-size: 32px;
-  position: absolute;
   color: #000000;
+  font-size: 32px;
   letter-spacing: 0;
   line-height: normal;
 }
@@ -491,15 +482,15 @@ body {
   left: 1577px;
 }
 
-.page .overlap-group-2 {
+.page .overlap-group-3 {
+  position: relative;
   width: 192px;
   height: 151px;
-  border-radius: 156.17px;
-  position: relative;
   background-color: #ffffff;
+  border-radius: 156.17px;
 }
 
-.page .text-wrapper-17 {
+.page .text-wrapper-15 {
   color: #f16529;
   position: absolute;
   top: 39px;
@@ -519,7 +510,7 @@ body {
   left: 1576px;
 }
 
-.page .text-wrapper-18 {
+.page .text-wrapper-16 {
   color: #2965f1;
   position: absolute;
   top: 39px;
@@ -533,13 +524,29 @@ body {
 
 .page .section-3 {
   position: absolute;
-  width: 194px;
+  width: 227px;
   height: 151px;
   top: 807px;
   left: 1577px;
 }
 
-.page .text-wrapper-19 {
+.page .overlap-3 {
+  position: relative;
+  width: 225px;
+  height: 151px;
+}
+
+.page .rectangle {
+  width: 240px;
+  height: 151px;
+  left: 0;
+  background-color: #ffffff;
+  border-radius: 156.17px;
+  position: absolute;
+  top: 0;
+}
+
+.page .text-wrapper-17 {
   color: #f1bf22;
   position: absolute;
   top: 39px;
@@ -560,7 +567,7 @@ body {
   background-color: #ffffff;
 }
 
-.page .text-wrapper-20 {
+.page .text-wrapper-18 {
   position: absolute;
   width: 390px;
   top: 44px;
@@ -582,14 +589,14 @@ body {
   left: 570px;
 }
 
-.page .rectangle {
-  position: absolute;
-  width: 180px;
+.page .rectangle-2 {
+  width: 175px;
   height: 60px;
-  top: 35px;
-  left: 335px;
+  left: 338px;
   background-color: #b4d4ff;
   border-radius: 100px;
+  position: absolute;
+  top: 5%;
 }
 
 .page .use-this-link-or {
@@ -614,7 +621,7 @@ body {
   letter-spacing: 0;
 }
 
-.page .text-wrapper-21 {
+.page .text-wrapper-19 {
   text-decoration: underline;
 }
 
@@ -622,11 +629,11 @@ body {
   position: absolute;
   width: 580px;
   height: 580px;
-  top: 120px;
+  top: 20%;
   left: 100px;
 }
 
-.page .text-wrapper-22 {
+.page .text-wrapper-20 {
   position: absolute;
   top: 976px;
   left: 747px;
